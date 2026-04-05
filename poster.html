@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanremo Festival Kazakhstan – Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: #1a1a1a;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+font-family: ‘Montserrat’, sans-serif;
+padding: 20px;
+}
+
+.poster {
+width: 800px;
+height: 1130px;
+position: relative;
+overflow: hidden;
+background: #0a0510;
+box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+}
+
+/* DEEP LAYERED BACKGROUND */
+.bg-base {
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse at 50% 0%, #1a0a2e 0%, #080412 55%, #020108 100%);
+}
+
+.bg-velvet {
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse at 20% 40%, rgba(180,120,20,0.08) 0%, transparent 60%),
+radial-gradient(ellipse at 80% 30%, rgba(180,100,30,0.06) 0%, transparent 50%);
+}
+
+/* GOLD ORNAMENTAL FRAME */
+.frame-outer {
+position: absolute;
+top: 14px; left: 14px; right: 14px; bottom: 14px;
+border: 1.5px solid rgba(212,175,55,0.35);
+pointer-events: none;
+z-index: 50;
+}
+.frame-inner {
+position: absolute;
+top: 20px; left: 20px; right: 20px; bottom: 20px;
+border: 0.5px solid rgba(212,175,55,0.18);
+pointer-events: none;
+z-index: 50;
+}
+
+/* CORNER ORNAMENTS */
+.corner {
+position: absolute;
+width: 38px;
+height: 38px;
+z-index: 51;
+}
+.corner svg { width: 100%; height: 100%; }
+.corner-tl { top: 10px; left: 10px; }
+.corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+.corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+.corner-br { bottom: 10px; right: 10px; transform: scale(-1,-1); }
+
+/* TOP SECTION */
+.top-section {
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 200px;
+z-index: 10;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-top: 42px;
+}
+
+.presents-line {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 5px;
+color: rgba(212,175,55,0.7);
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+
+.festival-title {
+text-align: center;
+line-height: 1;
+}
+.festival-title .sanremo {
+display: block;
+font-family: ‘Playfair Display’, serif;
+font-size: 74px;
+font-weight: 900;
+font-style: italic;
+color: #D4AF37;
+letter-spacing: -1px;
+text-shadow:
+0 0 40px rgba(212,175,55,0.5),
+0 0 80px rgba(212,175,55,0.2),
+2px 2px 0px rgba(100,60,0,0.5);
+line-height: 0.9;
+}
+.festival-title .festival-word {
+display: block;
+font-family: ‘Playfair Display’, serif;
+font-size: 28px;
+font-weight: 400;
+font-style: italic;
+color: rgba(255,255,255,0.9);
+letter-spacing: 12px;
+text-transform: uppercase;
+margin-top: 4px;
+}
+.festival-title .in-kazakhstan {
+display: block;
+font-family: ‘Montserrat’, sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 8px;
+color: rgba(212,175,55,0.8);
+text-transform: uppercase;
+margin-top: 6px;
+}
+
+/* GOLD DIVIDER */
+.gold-divider {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+align-items: center;
+gap: 10px;
+white-space: nowrap;
+}
+.gold-divider .line {
+height: 0.5px;
+background: linear-gradient(90deg, transparent, rgba(212,175,55,0.8), transparent);
+}
+.gold-divider .diamond {
+width: 5px;
+height: 5px;
+background: #D4AF37;
+transform: rotate(45deg);
+flex-shrink: 0;
+}
+
+.divider-1 {
+top: 192px;
+width: 680px;
+}
+.divider-1 .line { width: 295px; }
+
+/* ARTISTS PHOTOS ZONE */
+.photos-zone {
+position: absolute;
+top: 200px;
+left: 0; right: 0;
+height: 590px;
+z-index: 5;
+overflow: hidden;
+}
+
+/* GRAND STAGE LIGHT RAYS */
+.rays {
+position: absolute;
+top: -80px;
+left: 50%;
+transform: translateX(-50%);
+width: 120%;
+height: 700px;
+z-index: 1;
+pointer-events: none;
+}
+.ray {
+position: absolute;
+top: 0;
+left: 50%;
+width: 2px;
+height: 100%;
+transform-origin: top center;
+opacity: 0.04;
+}
+.ray:nth-child(1) { transform: rotate(-60deg); background: linear-gradient(180deg, #D4AF37, transparent); opacity: 0.05; }
+.ray:nth-child(2) { transform: rotate(-40deg); background: linear-gradient(180deg, #D4AF37, transparent); opacity: 0.07; width: 80px; }
+.ray:nth-child(3) { transform: rotate(-20deg); background: linear-gradient(180deg, #fff, transparent); opacity: 0.04; width: 60px; }
+.ray:nth-child(4) { transform: rotate(0deg); background: linear-gradient(180deg, #fff, transparent); opacity: 0.06; width: 100px; }
+.ray:nth-child(5) { transform: rotate(20deg); background: linear-gradient(180deg, #fff, transparent); opacity: 0.04; width: 60px; }
+.ray:nth-child(6) { transform: rotate(40deg); background: linear-gradient(180deg, #D4AF37, transparent); opacity: 0.07; width: 80px; }
+.ray:nth-child(7) { transform: rotate(60deg); background: linear-gradient(180deg, #D4AF37, transparent); opacity: 0.05; }
+
+/* ARTIST PHOTOS */
+.photo-albano {
+position: absolute;
+left: -30px;
+bottom: 0;
+width: 520px;
+height: 590px;
+z-index: 3;
+}
+.photo-albano img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center top;
+filter: contrast(1.05) brightness(1.0);
+}
+/* Gradient mask for Al Bano */
+.photo-albano::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+linear-gradient(to right, transparent 30%, rgba(5,1,12,0.95) 90%),
+linear-gradient(to top, rgba(5,1,12,1) 0%, transparent 20%),
+linear-gradient(to bottom, rgba(5,1,12,0.6) 0%, transparent 18%);
+}
+
+.photo-sabrina {
+position: absolute;
+right: -20px;
+bottom: 0;
+width: 420px;
+height: 560px;
+z-index: 4;
+}
+.photo-sabrina img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center top;
+filter: contrast(1.05) brightness(1.0);
+}
+.photo-sabrina::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+linear-gradient(to left, transparent 20%, rgba(5,1,12,0.8) 85%),
+linear-gradient(to top, rgba(5,1,12,1) 0%, transparent 20%),
+linear-gradient(to bottom, rgba(5,1,12,0.5) 0%, transparent 15%);
+}
+
+/* GOLD GLOW BETWEEN PHOTOS */
+.center-glow {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+width: 300px;
+height: 600px;
+background: radial-gradient(ellipse, rgba(212,175,55,0.04) 0%, transparent 70%);
+z-index: 2;
+pointer-events: none;
+}
+
+/* ARTIST NAMES OVERLAY */
+.artists-names {
+position: absolute;
+top: 210px;
+left: 0; right: 0;
+z-index: 20;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 2px;
+pointer-events: none;
+}
+
+.artists-names .name-albano {
+font-family: ‘Playfair Display’, serif;
+font-size: 52px;
+font-weight: 700;
+font-style: italic;
+color: #ffffff;
+letter-spacing: 2px;
+text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 60px rgba(212,175,55,0.2);
+text-align: center;
+line-height: 1;
+/* Shifted left to align with Al Bano photo */
+margin-left: -200px;
+}
+
+.artists-names .ampersand-row {
+display: flex;
+align-items: center;
+gap: 18px;
+margin-top: 4px;
+margin-left: 0;
+}
+.artists-names .amp-line {
+width: 80px;
+height: 0.5px;
+background: linear-gradient(90deg, transparent, rgba(212,175,55,0.7));
+}
+.artists-names .amp-line.right {
+background: linear-gradient(90deg, rgba(212,175,55,0.7), transparent);
+}
+.artists-names .ampersand {
+font-family: ‘Playfair Display’, serif;
+font-size: 28px;
+font-style: italic;
+color: #D4AF37;
+text-shadow: 0 0 20px rgba(212,175,55,0.6);
+}
+
+.artists-names .name-sabrina {
+font-family: ‘Playfair Display’, serif;
+font-size: 52px;
+font-weight: 700;
+font-style: italic;
+color: #ffffff;
+letter-spacing: 2px;
+text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 60px rgba(212,175,55,0.2);
+text-align: center;
+line-height: 1;
+margin-left: 200px; /* Shifted right to align with Sabrina photo */
+}
+
+.artists-names .salerno-sub {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 9px;
+font-weight: 600;
+letter-spacing: 6px;
+color: rgba(212,175,55,0.7);
+text-transform: uppercase;
+margin-top: 2px;
+margin-left: 200px;
+}
+.artists-names .albano-sub {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 9px;
+font-weight: 600;
+letter-spacing: 6px;
+color: rgba(212,175,55,0.7);
+text-transform: uppercase;
+margin-top: 2px;
+margin-left: -200px;
+}
+
+/* ALSO FEATURING SECTION */
+.also-featuring {
+position: absolute;
+top: 740px;
+left: 0; right: 0;
+z-index: 20;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 6px;
+padding: 0 60px;
+}
+
+.featuring-label {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 10px;
+font-weight: 400;
+letter-spacing: 6px;
+color: rgba(212,175,55,0.65);
+text-transform: uppercase;
+}
+
+.featuring-artists {
+display: flex;
+align-items: center;
+gap: 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.feat-artist {
+font-family: ‘Playfair Display’, serif;
+font-size: 13px;
+font-weight: 700;
+color: rgba(255,255,255,0.85);
+letter-spacing: 1px;
+white-space: nowrap;
+}
+.feat-tribute {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 7px;
+font-weight: 500;
+color: rgba(212,175,55,0.6);
+letter-spacing: 3px;
+text-transform: uppercase;
+margin-left: 4px;
+vertical-align: super;
+}
+.feat-sep {
+color: rgba(212,175,55,0.4);
+margin: 0 12px;
+font-size: 10px;
+}
+
+.feat-more {
+font-family: ‘Playfair Display’, serif;
+font-size: 13px;
+font-weight: 700;
+color: rgba(255,255,255,0.85);
+letter-spacing: 1px;
+}
+
+/* DATE & VENUE BLOCK */
+.date-venue-block {
+position: absolute;
+top: 810px;
+left: 0; right: 0;
+z-index: 20;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0;
+}
+
+.divider-2 {
+width: 600px;
+margin-bottom: 18px;
+}
+.divider-2 .line { width: 260px; }
+
+.date-row {
+display: flex;
+align-items: center;
+gap: 24px;
+}
+
+.date-box {
+display: flex;
+flex-direction: column;
+align-items: center;
+border: 1px solid rgba(212,175,55,0.4);
+padding: 8px 20px;
+background: rgba(212,175,55,0.05);
+position: relative;
+}
+.date-box::before {
+content: ‘’;
+position: absolute;
+top: -1px; left: -1px; right: -1px; bottom: -1px;
+box-shadow: inset 0 0 20px rgba(212,175,55,0.05);
+}
+
+.date-number {
+font-family: ‘Playfair Display’, serif;
+font-size: 52px;
+font-weight: 900;
+color: #D4AF37;
+line-height: 1;
+text-shadow: 0 0 30px rgba(212,175,55,0.4);
+}
+.date-month {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 5px;
+color: rgba(255,255,255,0.8);
+text-transform: uppercase;
+margin-top: -2px;
+}
+.date-year {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 8px;
+font-weight: 400;
+letter-spacing: 3px;
+color: rgba(212,175,55,0.5);
+margin-top: 2px;
+}
+
+.venue-info {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+.venue-city {
+font-family: ‘Playfair Display’, serif;
+font-size: 28px;
+font-weight: 700;
+font-style: italic;
+color: #fff;
+letter-spacing: 2px;
+text-shadow: 0 0 20px rgba(212,175,55,0.15);
+}
+.venue-name {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 4px;
+color: rgba(212,175,55,0.8);
+text-transform: uppercase;
+}
+.venue-time {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 9px;
+font-weight: 400;
+letter-spacing: 3px;
+color: rgba(255,255,255,0.45);
+text-transform: uppercase;
+}
+
+/* DIVIDER 3 */
+.divider-3 {
+position: absolute;
+top: 940px;
+left: 50%;
+transform: translateX(-50%);
+width: 680px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.divider-3 .line {
+height: 0.5px;
+background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+flex: 1;
+}
+.divider-3 .diamond {
+width: 4px; height: 4px;
+background: rgba(212,175,55,0.6);
+transform: rotate(45deg);
+}
+
+/* LOGOS STRIP */
+.logos-strip {
+position: absolute;
+bottom: 36px;
+left: 0; right: 0;
+z-index: 30;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 32px;
+padding: 0 60px;
+}
+
+.logo-block {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 3px;
+opacity: 0.85;
+}
+
+/* Freedom Ticketon Logo (SVG recreation) */
+.ft-logo {
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.ft-shield {
+width: 22px;
+height: 26px;
+}
+.ft-text-block {
+display: flex;
+flex-direction: column;
+line-height: 1;
+}
+.ft-freedom {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 9px;
+font-weight: 900;
+color: #fff;
+letter-spacing: 0.5px;
+}
+.ft-ticketon {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 9px;
+font-weight: 900;
+color: #fff;
+letter-spacing: 0.5px;
+}
+.ft-o {
+display: inline-block;
+width: 7px;
+height: 7px;
+border-radius: 50%;
+border: 1.5px solid #fff;
+vertical-align: middle;
+margin: 0 0.5px;
+position: relative;
+top: -0.5px;
+}
+
+/* Astana Concert Logo */
+.ac-logo {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.ac-text {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 9px;
+font-weight: 800;
+color: #fff;
+letter-spacing: 1px;
+text-transform: uppercase;
+line-height: 1.2;
+text-align: center;
+}
+.ac-icon {
+width: 18px;
+height: 18px;
+margin-bottom: 2px;
+}
+
+/* CA Entertainment */
+.ca-logo {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.ca-text {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 12px;
+font-weight: 900;
+color: #fff;
+letter-spacing: 1px;
+line-height: 1;
+}
+.ca-sub {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 6.5px;
+font-weight: 700;
+color: #fff;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.logo-sep {
+width: 1px;
+height: 28px;
+background: rgba(212,175,55,0.3);
+}
+
+/* TICKETS LINE */
+.tickets-line {
+position: absolute;
+bottom: 26px;
+left: 0; right: 0;
+text-align: center;
+z-index: 30;
+font-family: ‘Montserrat’, sans-serif;
+font-size: 7.5px;
+font-weight: 500;
+letter-spacing: 4px;
+color: rgba(212,175,55,0.5);
+text-transform: uppercase;
+}
+
+/* BOTTOM GRADIENT */
+.bottom-fade {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 220px;
+background: linear-gradient(to top, rgba(5,1,12,1) 0%, rgba(5,1,12,0.85) 60%, transparent 100%);
+z-index: 6;
+pointer-events: none;
+}
+
+/* Subtle noise texture overlay */
+.noise {
+position: absolute;
+inset: 0;
+z-index: 45;
+opacity: 0.025;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’/%3E%3C/svg%3E”);
+pointer-events: none;
+}
+
+/* SPARKLE STARS */
+.star {
+position: absolute;
+background: #D4AF37;
+border-radius: 50%;
+z-index: 8;
+animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle {
+0%, 100% { opacity: 0.2; transform: scale(1); }
+50% { opacity: 0.7; transform: scale(1.4); }
+}
+</style>
+
+</head>
+<body>
+<div class="poster">
+
+  <!-- Background layers -->
+
+  <div class="bg-base"></div>
+  <div class="bg-velvet"></div>
+  <div class="noise"></div>
+
+  <!-- Decorative stars -->
+
+  <div class="star" style="width:2px;height:2px;top:18%;left:8%;animation-delay:0.5s"></div>
+  <div class="star" style="width:1.5px;height:1.5px;top:35%;left:5%;animation-delay:1.2s"></div>
+  <div class="star" style="width:2px;height:2px;top:22%;right:9%;animation-delay:0.8s"></div>
+  <div class="star" style="width:1.5px;height:1.5px;top:42%;right:6%;animation-delay:2s"></div>
+  <div class="star" style="width:1px;height:1px;top:55%;left:7%;animation-delay:1.5s"></div>
+  <div class="star" style="width:2px;height:2px;top:15%;left:22%;animation-delay:0.3s"></div>
+  <div class="star" style="width:1px;height:1px;top:12%;right:25%;animation-delay:1.8s"></div>
+
+  <!-- Frame -->
+
+  <div class="frame-outer"></div>
+  <div class="frame-inner"></div>
+
+  <!-- Corner ornaments -->
+
+  <div class="corner corner-tl">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 38 L2 2 L38 2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M2 22 L2 2 L22 2" stroke="#D4AF37" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.8"/>
+      <path d="M8 2 L8 8 L2 8" stroke="#D4AF37" stroke-width="0.5" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="corner corner-tr">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 38 L2 2 L38 2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M2 22 L2 2 L22 2" stroke="#D4AF37" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="corner corner-bl">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 38 L2 2 L38 2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M2 22 L2 2 L22 2" stroke="#D4AF37" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="corner corner-br">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 38 L2 2 L38 2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M2 22 L2 2 L22 2" stroke="#D4AF37" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <circle cx="2" cy="2" r="2" fill="#D4AF37" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <!-- TOP SECTION -->
+
+  <div class="top-section">
+    <div class="presents-line">Astana Concert &amp; CA Entertainment presenta</div>
+    <div class="festival-title">
+      <span class="sanremo">Sanremo</span>
+      <span class="festival-word">Festival</span>
+      <span class="in-kazakhstan">in Kazakhstan</span>
+    </div>
+  </div>
+
+  <!-- Gold divider 1 -->
+
+  <div class="gold-divider divider-1">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- PHOTOS ZONE -->
+
+  <div class="photos-zone">
+    <div class="rays">
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+      <div class="ray"></div>
+    </div>
+    <div class="center-glow"></div>
+
+```
+<!-- Al Bano photo -->
+<div class="photo-albano">
+  <img src="/mnt/user-data/uploads/COPERTINA_PH_20CLAUDIO_20PORCARELLI_rid.jpeg" alt="Al Bano">
+</div>
+
+<!-- Sabrina Salerno photo -->
+<div class="photo-sabrina">
+  <img src="/mnt/user-data/uploads/SABRINA_20SALERNO_20_201.jpg" alt="Sabrina Salerno">
+</div>
+
+<div class="bottom-fade"></div>
+```
+
+  </div>
+
+  <!-- ARTIST NAMES -->
+
+  <div class="artists-names">
+    <div class="name-albano">Al Bano</div>
+    <div class="albano-sub">Carrisi</div>
+    <div class="ampersand-row">
+      <div class="amp-line"></div>
+      <div class="ampersand">&amp;</div>
+      <div class="amp-line right"></div>
+    </div>
+    <div class="name-sabrina">Sabrina</div>
+    <div class="salerno-sub">Salerno</div>
+  </div>
+
+  <!-- ALSO FEATURING -->
+
+  <div class="also-featuring">
+    <div class="featuring-label">Also featuring</div>
+    <div class="featuring-artists">
+      <span class="feat-artist">Adriano Celentano<span class="feat-tribute">Tribute</span></span>
+      <span class="feat-sep">✦</span>
+      <span class="feat-artist">Toto Cutugno<span class="feat-tribute">Tribute</span></span>
+      <span class="feat-sep">✦</span>
+      <span class="feat-artist">Son Pascal</span>
+      <span class="feat-sep">✦</span>
+      <span class="feat-artist">Mamma Maria Orchestra</span>
+    </div>
+  </div>
+
+  <!-- DATE & VENUE -->
+
+  <div class="date-venue-block">
+    <div class="gold-divider divider-2">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+    <div class="date-row">
+      <div class="date-box">
+        <div class="date-number">6</div>
+        <div class="date-month">Июля / July</div>
+        <div class="date-year">2025</div>
+      </div>
+      <div class="venue-info">
+        <div class="venue-city">Астана</div>
+        <div class="venue-name">Barys Arena</div>
+        <div class="venue-time">Начало в 19:00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider 3 -->
+
+  <div class="divider-3">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- LOGOS STRIP -->
+
+  <div class="logos-strip">
+
+```
+<!-- Astana Concert Logo -->
+<div class="logo-block ac-logo">
+  <img src="astana-concert-logo.png" alt="Astana Concert" class="ac-logo-img" style="height: 60px; width: auto; object-fit: contain;">
+</div>
+
+<div class="logo-sep"></div>
+
+<!-- CA Entertainment Logo -->
+<div class="logo-block ca-logo">
+  <img src="ca-entertainment-logo.png" alt="CA Entertainment" class="ca-logo-img" style="height: 60px; width: auto; object-fit: contain;">
+</div>
+
+<div class="logo-sep"></div>
+
+<!-- Freedom Ticketon Logo -->
+<div class="logo-block">
+  <img src="freedom-logo.png" alt="Freedom Ticketon" class="ft-logo-img" style="height: 60px; width: auto; object-fit: contain;">
+</div>
+```
+
+  </div>
+
+  <!-- Tickets line -->
+
+  <div class="tickets-line">Билеты · Ticketon.kz · freedomticket.kz</div>
+
+</div>
+</body>
+</html>

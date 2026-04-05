@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanremo Festival Kazakhstan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+width: 800px;
+min-height: 1130px;
+background: #000;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+font-family: ‘Cinzel’, serif;
+}
+
+.poster {
+width: 800px;
+min-height: 1130px;
+position: relative;
+overflow: hidden;
+background: linear-gradient(160deg, #0a0f1e 0%, #0d1a14 35%, #071220 65%, #0a0a12 100%);
+}
+
+/* Deep theatrical background layers */
+.bg-texture {
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 70% 50% at 50% 30%, rgba(0,80,60,0.18) 0%, transparent 70%),
+radial-gradient(ellipse 60% 40% at 20% 60%, rgba(0,30,80,0.2) 0%, transparent 60%),
+radial-gradient(ellipse 60% 40% at 80% 60%, rgba(0,30,80,0.2) 0%, transparent 60%);
+z-index: 1;
+}
+
+/* Curtain vertical line texture */
+.curtain-lines {
+position: absolute;
+inset: 0;
+background-image: repeating-linear-gradient(
+90deg,
+transparent,
+transparent 18px,
+rgba(255,255,255,0.012) 18px,
+rgba(255,255,255,0.012) 19px
+);
+z-index: 2;
+}
+
+/* Stage light cone top center */
+.stage-light {
+position: absolute;
+top: -60px;
+left: 50%;
+transform: translateX(-50%);
+width: 700px;
+height: 700px;
+background: conic-gradient(
+from 260deg at 50% 0%,
+transparent 0deg,
+rgba(255,220,120,0.04) 20deg,
+rgba(255,235,160,0.10) 40deg,
+rgba(255,220,120,0.04) 60deg,
+transparent 80deg
+);
+z-index: 3;
+}
+
+/* Gold shimmer top arc */
+.top-arc {
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 6px;
+background: linear-gradient(90deg, transparent 0%, #8a6a10 15%, #e4b94a 35%, #f7d97a 50%, #e4b94a 65%, #8a6a10 85%, transparent 100%);
+z-index: 10;
+}
+.bottom-arc {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 4px;
+background: linear-gradient(90deg, transparent 0%, #8a6a10 15%, #e4b94a 35%, #f7d97a 50%, #e4b94a 65%, #8a6a10 85%, transparent 100%);
+z-index: 10;
+}
+
+/* Italian flag accent top */
+.flag-stripe {
+position: absolute;
+top: 6px; left: 0; right: 0;
+display: flex;
+height: 3px;
+z-index: 10;
+}
+.flag-stripe span { flex: 1; }
+.flag-stripe span:nth-child(1) { background: rgba(0,140,70,0.8); }
+.flag-stripe span:nth-child(2) { background: rgba(255,255,255,0.6); }
+.flag-stripe span:nth-child(3) { background: rgba(200,30,30,0.8); }
+
+/* ─── HEADER ZONE ─── */
+.header {
+position: relative;
+z-index: 20;
+text-align: center;
+padding-top: 28px;
+padding-bottom: 0;
+}
+
+.italy-label {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+font-size: 10px;
+letter-spacing: 8px;
+color: rgba(255,220,120,0.7);
+text-transform: uppercase;
+margin-bottom: 8px;
+}
+
+.main-title {
+font-family: ‘Cinzel’, serif;
+font-weight: 900;
+font-size: 68px;
+line-height: 0.9;
+letter-spacing: 6px;
+background: linear-gradient(180deg, #fff9e0 0%, #f7d97a 30%, #e4b94a 55%, #c49820 75%, #f7d97a 90%, #e4b94a 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-shadow: none;
+filter: drop-shadow(0 2px 18px rgba(228,185,74,0.45));
+}
+
+.title-divider {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin: 10px auto;
+width: 420px;
+}
+.title-divider .line {
+flex: 1;
+height: 1px;
+background: linear-gradient(90deg, transparent, #e4b94a, transparent);
+}
+.title-divider .diamond {
+width: 7px; height: 7px;
+background: #e4b94a;
+transform: rotate(45deg);
+}
+
+.sub-title {
+font-family: ‘Cinzel’, serif;
+font-weight: 400;
+font-size: 26px;
+letter-spacing: 18px;
+color: #e4b94a;
+text-transform: uppercase;
+margin-bottom: 4px;
+opacity: 0.9;
+}
+
+.festival-label {
+font-family: ‘Cormorant+Garamond’, ‘Cormorant Garamond’, ‘Georgia’, serif;
+font-style: italic;
+font-weight: 300;
+font-size: 15px;
+letter-spacing: 5px;
+color: rgba(255,240,180,0.55);
+margin-bottom: 2px;
+}
+
+/* ─── STARS SECTION ─── */
+.stars-section {
+position: relative;
+z-index: 20;
+display: flex;
+justify-content: center;
+align-items: flex-end;
+gap: 0;
+margin-top: -10px;
+height: 530px;
+}
+
+.artist-wrap {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.artist-wrap.albano {
+width: 360px;
+margin-right: -30px;
+z-index: 5;
+}
+.artist-wrap.sabrina {
+width: 390px;
+margin-left: -30px;
+z-index: 6;
+}
+
+/* Glow backlight behind each artist */
+.glow-albano {
+position: absolute;
+bottom: 0; left: 50%;
+transform: translateX(-50%);
+width: 320px;
+height: 480px;
+background: radial-gradient(ellipse 60% 80% at 50% 90%, rgba(60,120,255,0.22) 0%, transparent 70%);
+z-index: 1;
+pointer-events: none;
+}
+.glow-sabrina {
+position: absolute;
+bottom: 0; left: 50%;
+transform: translateX(-50%);
+width: 340px;
+height: 480px;
+background: radial-gradient(ellipse 60% 80% at 50% 90%, rgba(180,80,255,0.18) 0%, transparent 70%);
+z-index: 1;
+pointer-events: none;
+}
+
+.artist-img {
+position: relative;
+z-index: 3;
+display: block;
+width: 100%;
+object-fit: contain;
+object-position: bottom;
+filter: contrast(1.05) saturate(1.1) brightness(1.02) drop-shadow(0 0 28px rgba(228,185,74,0.18));
+}
+
+.artist-name {
+position: absolute;
+bottom: 6px;
+left: 50%;
+transform: translateX(-50%);
+font-family: ‘Cinzel’, serif;
+font-weight: 700;
+font-size: 12.5px;
+letter-spacing: 4px;
+color: #e4b94a;
+white-space: nowrap;
+z-index: 10;
+text-shadow: 0 0 14px rgba(228,185,74,0.6);
+}
+
+/* Horizontal gold separator */
+.mid-divider {
+position: relative;
+z-index: 20;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 16px;
+margin: 6px 60px;
+}
+.mid-divider .mline {
+flex: 1;
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(228,185,74,0.5), transparent);
+}
+.mid-divider .mstar {
+color: #e4b94a;
+font-size: 14px;
+}
+
+/* ─── DATE BLOCK ─── */
+.date-block {
+position: relative;
+z-index: 20;
+text-align: center;
+margin-top: 4px;
+}
+
+.date-main {
+font-family: ‘Cinzel’, serif;
+font-weight: 900;
+font-size: 52px;
+letter-spacing: 4px;
+background: linear-gradient(180deg, #fff9e0 0%, #f7d97a 40%, #c49820 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+filter: drop-shadow(0 2px 12px rgba(228,185,74,0.4));
+line-height: 1;
+}
+
+.date-sub {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+font-size: 13px;
+letter-spacing: 10px;
+color: rgba(255,220,120,0.65);
+margin-top: 2px;
+text-transform: uppercase;
+}
+
+/* ─── INFO ROW ─── */
+.info-row {
+position: relative;
+z-index: 20;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 30px;
+margin: 10px auto 0;
+padding: 10px 20px;
+border-top: 1px solid rgba(228,185,74,0.2);
+border-bottom: 1px solid rgba(228,185,74,0.2);
+max-width: 600px;
+}
+
+.info-item {
+text-align: center;
+}
+.info-label {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+font-size: 9px;
+letter-spacing: 5px;
+color: rgba(255,220,120,0.5);
+text-transform: uppercase;
+margin-bottom: 3px;
+}
+.info-value {
+font-family: ‘Cinzel’, serif;
+font-size: 15px;
+font-weight: 700;
+color: #f7d97a;
+letter-spacing: 2px;
+}
+.info-sep {
+width: 1px;
+height: 36px;
+background: linear-gradient(180deg, transparent, rgba(228,185,74,0.4), transparent);
+}
+
+/* ─── TRIBUTE ACTS ─── */
+.tribute-section {
+position: relative;
+z-index: 20;
+text-align: center;
+margin-top: 12px;
+padding: 0 40px;
+}
+
+.tribute-label {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+font-size: 9px;
+letter-spacing: 6px;
+color: rgba(255,220,120,0.45);
+text-transform: uppercase;
+margin-bottom: 8px;
+}
+
+.tribute-acts {
+font-family: ‘Cinzel’, serif;
+font-size: 13px;
+font-weight: 400;
+letter-spacing: 3px;
+color: rgba(230,200,120,0.75);
+text-transform: uppercase;
+}
+
+.tribute-acts span {
+display: inline-block;
+margin: 0 10px;
+}
+.tribute-dot {
+color: #e4b94a;
+opacity: 0.6;
+}
+
+/* ─── BOTTOM LOGOS ─── */
+.logos-bar {
+position: relative;
+z-index: 20;
+margin-top: 18px;
+padding: 14px 40px 20px;
+border-top: 1px solid rgba(228,185,74,0.15);
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 30px;
+flex-wrap: wrap;
+}
+
+.logo-badge {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 3px;
+padding: 6px 14px;
+border: 1px solid rgba(228,185,74,0.22);
+border-radius: 3px;
+background: rgba(255,220,100,0.04);
+}
+
+.logo-name {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 600;
+font-size: 9.5px;
+letter-spacing: 2.5px;
+color: rgba(240,220,140,0.7);
+text-transform: uppercase;
+white-space: nowrap;
+}
+.logo-sub {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+font-size: 7px;
+letter-spacing: 2px;
+color: rgba(200,180,100,0.45);
+text-transform: uppercase;
+}
+
+.logo-sep {
+width: 1px; height: 30px;
+background: linear-gradient(180deg, transparent, rgba(228,185,74,0.2), transparent);
+}
+
+/* Ticket CTA */
+.ticket-cta {
+position: relative;
+z-index: 20;
+text-align: center;
+margin-top: 8px;
+margin-bottom: 4px;
+}
+.ticket-cta span {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 400;
+font-size: 9px;
+letter-spacing: 5px;
+color: rgba(255,200,80,0.45);
+text-transform: uppercase;
+}
+
+/* Stars dust overlay */
+.stars-dust {
+position: absolute;
+inset: 0;
+background-image:
+radial-gradient(1px 1px at 10% 15%, rgba(255,240,180,0.35) 0%, transparent 100%),
+radial-gradient(1px 1px at 25% 8%, rgba(255,240,180,0.25) 0%, transparent 100%),
+radial-gradient(1.5px 1.5px at 40% 20%, rgba(255,240,180,0.3) 0%, transparent 100%),
+radial-gradient(1px 1px at 60% 5%, rgba(255,240,180,0.2) 0%, transparent 100%),
+radial-gradient(1px 1px at 75% 18%, rgba(255,240,180,0.3) 0%, transparent 100%),
+radial-gradient(1.5px 1.5px at 88% 10%, rgba(255,240,180,0.25) 0%, transparent 100%),
+radial-gradient(1px 1px at 5% 50%, rgba(255,240,180,0.15) 0%, transparent 100%),
+radial-gradient(1px 1px at 95% 45%, rgba(255,240,180,0.2) 0%, transparent 100%),
+radial-gradient(1px 1px at 15% 85%, rgba(255,240,180,0.12) 0%, transparent 100%),
+radial-gradient(1px 1px at 85% 80%, rgba(255,240,180,0.12) 0%, transparent 100%);
+z-index: 4;
+pointer-events: none;
+}
+
+/* Corner ornaments */
+.corner {
+position: absolute;
+width: 55px; height: 55px;
+z-index: 25;
+}
+.corner svg { width: 100%; height: 100%; }
+.corner.tl { top: 14px; left: 14px; }
+.corner.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+.corner.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+.corner.br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+</style>
+
+</head>
+<body>
+<div class="poster">
+  <!-- Background layers -->
+  <div class="bg-texture"></div>
+  <div class="curtain-lines"></div>
+  <div class="stage-light"></div>
+  <div class="stars-dust"></div>
+
+  <!-- Border accents -->
+
+  <div class="top-arc"></div>
+  <div class="bottom-arc"></div>
+  <div class="flag-stripe"><span></span><span></span><span></span></div>
+
+  <!-- Corner ornaments -->
+
+  <div class="corner tl">
+    <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 5 L5 25 M5 5 L25 5" stroke="#c49820" stroke-width="1.5"/>
+      <path d="M5 5 L5 40 M5 5 L40 5" stroke="#c49820" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="5" cy="5" r="3" fill="#e4b94a" opacity="0.7"/>
+      <path d="M15 5 L15 15 M5 15 L15 15" stroke="#c49820" stroke-width="0.7" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="corner tr">
+    <svg viewBox="0 0 55 55" fill="none">
+      <path d="M5 5 L5 25 M5 5 L25 5" stroke="#c49820" stroke-width="1.5"/>
+      <path d="M5 5 L5 40 M5 5 L40 5" stroke="#c49820" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="5" cy="5" r="3" fill="#e4b94a" opacity="0.7"/>
+    </svg>
+  </div>
+  <div class="corner bl">
+    <svg viewBox="0 0 55 55" fill="none">
+      <path d="M5 5 L5 25 M5 5 L25 5" stroke="#c49820" stroke-width="1.5"/>
+      <path d="M5 5 L5 40 M5 5 L40 5" stroke="#c49820" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="5" cy="5" r="3" fill="#e4b94a" opacity="0.7"/>
+    </svg>
+  </div>
+  <div class="corner br">
+    <svg viewBox="0 0 55 55" fill="none">
+      <path d="M5 5 L5 25 M5 5 L25 5" stroke="#c49820" stroke-width="1.5"/>
+      <path d="M5 5 L5 40 M5 5 L40 5" stroke="#c49820" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="5" cy="5" r="3" fill="#e4b94a" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <!-- ─── HEADER ─── -->
+
+  <div class="header">
+    <div class="italy-label">La Grande Serata Italiana</div>
+    <div class="main-title">SANREMO</div>
+    <div class="main-title" style="font-size:42px; letter-spacing:22px; margin-top:-4px;">FESTIVAL</div>
+    <div class="title-divider">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+    <div class="sub-title">Kazakhstan</div>
+    <div class="festival-label">Gran Gala della Canzone Italiana</div>
+  </div>
+
+  <!-- ─── ARTIST PHOTOS ─── -->
+
+  <div class="stars-section">
+    <!-- Al Bano -->
+    <div class="artist-wrap albano">
+      <div class="glow-albano"></div>
+      <img
+        class="artist-img"
+        src="SESTINI.jpg"
+        alt="Al Bano"
+        style="height: 490px; width: auto; max-width: 100%;"
+      />
+      <div class="artist-name">AL BANO</div>
+    </div>
+
+
+<!-- Sabrina Salerno -->
+<div class="artist-wrap sabrina">
+  <div class="glow-sabrina"></div>
+  <img
+    class="artist-img"
+    src="SABRINA.jpg"
+    alt="Sabrina Salerno"
+    style="height: 510px; width: auto; max-width: 100%;"
+  />
+  <div class="artist-name">SABRINA SALERNO</div>
+</div>
+
+
+  </div>
+
+  <!-- ─── MID DIVIDER ─── -->
+
+  <div class="mid-divider">
+    <div class="mline"></div>
+    <span class="mstar">✦</span>
+    <span class="mstar">✦</span>
+    <span class="mstar">✦</span>
+    <div class="mline"></div>
+  </div>
+
+  <!-- ─── DATE ─── -->
+
+  <div class="date-block">
+    <div class="date-main">6 ИЮЛЯ</div>
+    <div class="date-sub">July 6th &nbsp;·&nbsp; 2025</div>
+  </div>
+
+  <!-- ─── INFO ROW ─── -->
+
+  <div class="info-row">
+    <div class="info-item">
+      <div class="info-label">Начало</div>
+      <div class="info-value">19:00</div>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-item">
+      <div class="info-label">Место</div>
+      <div class="info-value">🏟 BARYS ARENA</div>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-item">
+      <div class="info-label">Город</div>
+      <div class="info-value">ASTANA</div>
+    </div>
+  </div>
+
+  <!-- ─── TRIBUTE ACTS ─── -->
+
+  <div class="tribute-section">
+    <div class="tribute-label">Also Featuring Tributes to</div>
+    <div class="tribute-acts">
+      <span>Adriano Celentano</span>
+      <span class="tribute-dot">✦</span>
+      <span>Toto Cutugno</span>
+      <span class="tribute-dot">✦</span>
+      <span>Son Pascal</span>
+    </div>
+  </div>
+
+  <!-- ─── TICKET LINE ─── -->
+
+  <div class="ticket-cta">
+    <span>Билеты · Tickets · ticketon.kz</span>
+  </div>
+
+  <!-- ─── PARTNER LOGOS ─── -->
+
+  <div class="logos-bar">
+    <div class="logo-badge">
+      <img src="freedom-logo.png" alt="Freedom Ticketon" class="logo-img" style="height: 50px; width: auto; object-fit: contain;">
+      <div class="logo-sub">Официальный билетный партнёр</div>
+    </div>
+    <div class="logo-sep"></div>
+    <div class="logo-badge">
+      <img src="astana-concert-logo.png" alt="Astana Concert" class="logo-img" style="height: 50px; width: auto; object-fit: contain;">
+      <div class="logo-sub">Организатор</div>
+    </div>
+    <div class="logo-sep"></div>
+    <div class="logo-badge">
+      <img src="ca-entertainment-logo.png" alt="CA Entertainment" class="logo-img" style="height: 50px; width: auto; object-fit: contain;">
+      <div class="logo-sub">Продюсер</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
